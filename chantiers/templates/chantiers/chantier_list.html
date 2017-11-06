@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="row">
+        <div class="col s6 push-s3">
+
+<h3>Liste Chantiers</h3>
+
+{% if user.is_authenticated %}
+
+
+
+{% for chantier in derniers_chantiers %}
+
+
+    {% if user.id == chantier.user.id %}
+    
+    <h5> {{ chantier.name}} - {{ chantier.id }}</h5>
+    <a href="{% url "chantier_detail" chantier.id %}">Acceder au Chantier</a> 
+    
+    {% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+   
+
+{% endblock %}
+</div>
+    
+</div>
+
