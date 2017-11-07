@@ -25,7 +25,7 @@ SECRET_KEY = '(so4c2jnkq!rm#=@3h5n(-8q+6z4nu8j*s^kk-(boqe@3(slmm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thibaud.pythonanywhere.com']
+ALLOWED_HOSTS = ['thibaud.pythonanywhere.com', 'localhost']
 
 
 # Application definition
