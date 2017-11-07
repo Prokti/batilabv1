@@ -17,6 +17,6 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
-./doc/*
+doc/
 ./vscode/
 batilab/settings.py
