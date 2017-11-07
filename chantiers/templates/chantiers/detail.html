@@ -1,76 +1,51 @@
+ {% extends "base.html" %} {% block content %} {% if user.id == chantier.user.id %}
 
-{% extends "base.html" %}
+<div class="row">
 
-{% block content %}
+    <h5 class="brand-logo center">{{ chantier.name }}</h5>
 
-{% if user.id == chantier.user.id %}
 
-<div class="row"> 
-    
-        <h5 class="brand-logo center">{{ chantier.name }}</h5>
-        
-    
 </div>
 <div class="row">
     <div class="col s4">
-<h5>Mes Documents</h5>
 
+        <h5>Mes Documents</h5>
 
-{%if chantier.ccmi_doc != "" %}
-<p><a href="/doc/{{ chantier.ccmi_doc }}">Contrat de Construction </a></p>
-{%endif%}
-{%if chantier.appel_1_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_1_doc }}">Appel de fonds 1</a></p>
-{%endif%}
-{%if chantier.appel_2_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_2_doc }}">Appel de fonds 2</a></p>
-{%endif%}
-{%if chantier.appel_3_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_3_doc }}">Appel de fonds 3</a></p>
-{%endif%}
-{% if chantier.appel_4_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_4_doc }}">Appel de fonds 4</a></p>
-{%endif%}
-{% if chantier.appel_5_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_5_doc }}">Appel de fonds 5</a></p>
-{%endif%}
-{% if chantier.appel_6_doc != "" %}
-<p><a href="/doc/{{ chantier.appel_6_doc }}">Appel de fonds 6</a></p>
-{%endif%}
-{% if chantier.plans_os_doc != "" %}
-<p><a href="/doc/{{ chantier.plans_os_doc }}">Plan Ordre de Service</a></p>
-{%endif%}
-{% if chantier.reception_doc != "" %}
-<p><a href="/doc/{{ chantier.reception_doc }}">Dossier Reception</a></p>
-{%endif%}
-</div>
-    
-<div class="col s8">
+        <div class="collection">
+            {% for fichier in chantier.mesFichiers %}
+            <a href="/doc/{{ fichier.fichier_path }}" class="collection-item">{{fichier.name}}</a>
+            {% endfor %}
 
-    <h5>Mes Informations</h5> <br>
-{% for message in chantier.mesMessages %}
-
-<div class="card blue-grey darken-1">
-    <div class="card-content white-text">
-
-    {{message}} 
-    </div>
+        </div>
     </div>
 
 
-{% endfor %}
+
+    <div class="col s8">
+
+        <h5>Mes Informations</h5>
+        <br> {% for message in chantier.mesMessages %}
+
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+
+                {{message}}
+            </div>
+        </div>
 
 
-<!--<a href="{% url "chantier_liste" %}">RETOUR</a> -->
+        {% endfor %}
 
-{% else %}
 
-<h1>MAUVAISE IDENTIFICATION</h1>
+        <!--<a href="{% url "chantier_liste" %}">RETOUR</a> -->
 
- {% endif %}
- {% endblock %}
+        {% else %}
 
-</div>
+        <h1>MAUVAISE IDENTIFICATION</h1>
+
+        {% endif %} {% endblock %}
+
+    </div>
 
 </div>
 

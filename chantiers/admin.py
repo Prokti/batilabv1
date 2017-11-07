@@ -3,17 +3,22 @@ from django.utils.text import Truncator
 
 # Register your models here.
 
-from .models import Chantier, Marche, Category, CalculeMaison, Message
+from .models import *
 
 
 class MessageInline(admin.StackedInline):
     model = Message
     extra = 1
 
+class FichierInLine(admin.StackedInline):
+    model = Fichier
+    extra = 1
+
 class ChantierAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
 
-    inlines = [MessageInline]
+    inlines = [FichierInLine, MessageInline]
+    
 
 class MarcheAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'chantier')
