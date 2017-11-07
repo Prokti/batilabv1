@@ -8,11 +8,11 @@ from .models import *
 
 class MessageInline(admin.StackedInline):
     model = Message
-    extra = 1
+    extra = 0
 
 class FichierInLine(admin.StackedInline):
     model = Fichier
-    extra = 1
+    extra = 0
 
 class ChantierAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
