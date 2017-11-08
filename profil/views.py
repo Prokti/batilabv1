@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login
-from django.core.urlresolvers import reverse
 from .forms import ConnexionForm
 from django.http import HttpResponse
 
@@ -24,9 +23,6 @@ def connexion(request):
 
     return render(request, 'profil/connexion.html', locals())
 
-def deconnexion(request):
-    logout(request)
-    return redirect(reverse(connexion))
 
 
 
@@ -34,6 +30,7 @@ def dire_bonjour(request):
     if request.user.is_authenticated():
         return HttpResponse("Salut, {0} !".format(request.user.username))
     return HttpResponse("Salut, anonyme.")
+
 
 
 

@@ -8,17 +8,21 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
+<title>BatiLab - Berdin Groupe</title>
+
+</head>
+
 {% block nav %}
 
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">BatiLab</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/chantiers">Mon Chantier</a></li>        
+        <li><a href="/chantiers">Mes Chantier</a></li>        
         {% if user.is_authenticated %}
-        <li><a href="/profil/deconnexion">Deconnexion</a></li>
+        <li><a href="/profil/logout">Deconnexion</a></li>
         {% else %}
-        <li><a href="/profil/connexion">Connexion</a></li>
+        <li><a href="/profil/login">Connexion</a></li>
         {% endif %}
       </ul>
     </div>

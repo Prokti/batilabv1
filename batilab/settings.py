@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chantiers',
-    'profil',
+    'profil',    
+
 ]
 
 MIDDLEWARE = [
@@ -122,4 +123,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/doc/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'doc')
 
-LOGIN_URL = '/profil/connexion'
+LOGIN_URL = '/profil/login'
+LOGIN_REDIRECT_URL = '/chantiers/'
+
+# Configuration test envoi email dans la console en Developpement 
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Configuration serveur envoi email Production
+'''
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'thibaud.berdin@berdin-groupe.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Berdin Groupe - BatiLab <contact@berdin-groupe.com>'
+
+'''
