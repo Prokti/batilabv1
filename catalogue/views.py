@@ -20,5 +20,5 @@ class ListeHouse(ListView):
 
 class DetailHouse(DetailView):
     context_object_name = "detail_house"
-    template_name = "catalogues/detail.html"
+    template_name = "catalogue/detail_house.html"
     model = House

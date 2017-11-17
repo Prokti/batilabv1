@@ -1,49 +1,28 @@
-
-{% extends "base.html" %}
-
-{% block content %}
+ {% extends "base.html" %} {% block content %}
 
 
 <div class="row">
-        <div class="col s6 push-s3">
+    <div class="col s6 push-s3">
 
-<h3>Catalogue Maisons</h3>
-
-
+        <h3>Catalogue Maisons</h3>
 
 
-{% for house in liste_houses %}
+        {% for house in liste_houses %}
 
 
-
-    
-    <h5> {{ house.name}} - {{ house.id }}</h5>
-    <a href="{% url "detail_house" house.id %}">Acceder à la maison</a> 
-
-    {% for x , y in house.total.items %}
-            
-            <p>{{x}} -- {{y}} </p>
-
-    {% endfor %}
-
-    {% for x , y in house.groupe.items %}
-    
-    <p>{{x}} -- {{y}} </p>
-
-{% endfor %}
+        <h5> {{ house.name}} - {{ house.id }}</h5>
+        <a href="{% url " detail_house " house.id %}">Acceder à la maison</a>
 
 
-    <p>{{house.total}}</p>
-    <p>{{house.groupe}}</p>
-    
+        {% for x , y in house.groupe.items %}
 
-{% endfor %}
+        <p> ---GROUPE : {{x}} ---</p>
 
+        {% for x2 in y %}
 
+        <p>{{x2}}</p>
 
-   
+        {% endfor %} {% endfor %} {% endfor %} {% endblock %}
+    </div>
 
-{% endblock %}
-</div>
-    
 </div>

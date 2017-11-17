@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+
+
+
+<div>
+
+
+        <table>
+
+                {% for x , y in detail_house.groupe.items %}
+
+                <th>
+
+                        {{x}}
+
+                </th>
+
+                {% for x2 in y %}
+                <tr>
+                        {{x2}}
+
+                </tr>
+
+                {% endfor %} {% endfor %}
+        </table>
+
+
+
+</div>
+
+
+{% endblock %}

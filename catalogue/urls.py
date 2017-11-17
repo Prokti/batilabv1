@@ -5,6 +5,6 @@ from .models import *
 
 urlpatterns =[
     url(r'^$', views.ListeHouse.as_view(), name ="liste_house"),
-    url(r'^catalogue/(?P<pk>\d+)$', views.DetailHouse.as_view(), name ='detail_house'),   
+    url(r'^(?P<pk>\d+)$', views.DetailHouse.as_view(), name ='detail_house'),   
     
 ]
