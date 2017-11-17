@@ -54,7 +54,7 @@ class Message(models.Model):
 
     def __str__(self):
         return self.contenu
-
+ 
 class Fichier(models.Model):
     name = models.CharField(max_length=100)
     fichier_path = models.FileField(upload_to=renommage)
