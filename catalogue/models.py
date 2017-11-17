@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+
 import sys , os
 
 # Create your models here.
@@ -38,38 +40,48 @@ class House(models.Model):
                 dict1[y.house_attribute_value.name] = y.price_ht            
 
        
-        print(dict1)
+        #print(dict1)
         return dict1
 
     def groupe(self):
         g = self.houseitem_set.all()
-        print(g)
+        
 
         resultat = {}
-        total_variantes = []
 
         for x in g:
             #print(x.groupe_id)
             g3 = g.filter(groupe_id = x.groupe_id)
-            g4 = g3.all()
-            
-            #print(x.groupe.name)
-            
+            g4 = g3.all() 
+                     
 
-            for y in g3:
-                print(y.groupe.name)
-
-                r1 = y.groupe.name
+            for y in g3:     
+                
                 y1 = (y.houseattributeprice_set.all())
+                               
 
                 for y2 in y1:
-                    print(r1)
-                    resultat[r1] = [y2.house_attribute_value.name, y2.price_ht]
-                    print(y2.house_attribute_value.name, y2.price_ht)
-                    total_variantes.append(y2.price_ht)
 
 
-        return total_variantes
+                    r1 = y2.house_item.groupe.name                   
+                    #resultat = [y2.house_attribute_value.name, y2.price_ht]
+                    #print(y2.house_attribute_value.name, y2.price_ht)
+                    #total_variantes.append(y2.price_ht)
+
+                    for i in y1:
+
+                        
+                        if r1 in resultat:
+                            resultat[r1].append({y2.house_attribute_value.name : y2.price_ht})
+
+                        else:
+                            resultat[r1] = [{y2.house_attribute_value.name : y2.price_ht}]
+
+                    #resultat[r1] = {y2.house_attribute_value.name : y2.price_ht}
+
+                    #print(resultat)
+        print(resultat)
+        return resultat
 
         
 
@@ -104,10 +116,12 @@ class HouseAttributePrice(models.Model):
     house_item = models.ForeignKey(HouseItem, on_delete=models.CASCADE)
     house_attribute_value = models.ForeignKey(HouseAttributeValue, on_delete=models.CASCADE)
     price_ht = models.FloatField()
+    #content_object = GenericForeignKey("house_item", "price_ht")
+
+    
 
     def __float__(self):
         return self.price_ht
-
     def __str__(self):
         return "{} - {}".format(self.house_item, self.house_attribute_value)
 
