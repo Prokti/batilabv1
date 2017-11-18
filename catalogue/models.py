@@ -55,9 +55,6 @@ class House(models.Model):
                 for y2 in y1:
 
                     r1 = y2.house_item.groupe.name
-                    #resultat = [y2.house_attribute_value.name, y2.price_ht]
-                    #print(y2.house_attribute_value.name, y2.price_ht)
-                    # total_variantes.append(y2.price_ht)
 
                     if r1 in resultat:
                         resultat[r1].append(
@@ -66,10 +63,8 @@ class House(models.Model):
                     else:
                         resultat[r1] = [
                             {y2.house_attribute_value.name: y2.price_ht}]
-
-                    #resultat[r1] = {y2.house_attribute_value.name : y2.price_ht}
-
-                    # print(resultat)
+                    
+                    
         print(resultat)
         return resultat
 

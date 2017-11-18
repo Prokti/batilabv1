@@ -2,31 +2,40 @@
 
 
 
-<div>
 
 
-        <table>
+<table>
 
-                {% for x , y in detail_house.groupe.items %}
 
+
+
+        {% for x , y in detail_house.groupe.items %}
+        <tr>
                 <th>
-
+                        
                         {{x}}
-
+                        
                 </th>
+                
+        </tr>
+        
+        {% for x2 in y %} {%for x3 , x4 in x2.items %}
+        <tr>
+                
+                <td>
 
-                {% for x2 in y %}
-                <tr>
-                        {{x2}}
+                        {{x3}} -- {{x4}}
+                </td>
 
-                </tr>
+        </tr>
+        {% endfor %} {% endfor %}
+        {% endfor %}
 
-                {% endfor %} {% endfor %}
-        </table>
+</table>
 
 
 
-</div>
+
 
 
 {% endblock %}

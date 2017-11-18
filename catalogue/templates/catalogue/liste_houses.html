@@ -11,7 +11,7 @@
 
 
         <h5> {{ house.name}} - {{ house.id }}</h5>
-        <a href="{% url " detail_house " house.id %}">Acceder à la maison</a>
+        <a href="{% url "detail_house" house.id %}">Acceder à la maison</a>
 
 
         {% for x , y in house.groupe.items %}
@@ -21,7 +21,7 @@
         {% for x2 in y %}
 
         <p>{{x2}}</p>
-
+       
         {% endfor %} {% endfor %} {% endfor %} {% endblock %}
     </div>
 
