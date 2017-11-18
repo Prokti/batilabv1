@@ -1,41 +1,45 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %} 
 
 
-
-
-
+<h3> {{detail_house.name}} -- {{detail_house.price_ht}} € -- TTC : {{detail_house.prix_ttc}} € </h3>
 <table>
-
-
-
-
         {% for x , y in detail_house.groupe.items %}
         <tr>
                 <th>
-                        
+
                         {{x}}
-                        
+
                 </th>
-                
+
+                <th>
+                        Prix HT
+                </th>
+                <th>
+                        Prix TTC
+                </th>
+
         </tr>
-        
-        {% for x2 in y %} {%for x3 , x4 in x2.items %}
+
         <tr>
-                
+                {% for x2 in y %} {%for x3 , x4 in x2.items %}
+
                 <td>
 
-                        {{x3}} -- {{x4}}
+                        {{x3}}
+                </td>
+
+                <td>
+                        {{x4}} €
+                </td>
+
+                <td>
+                        {{x4}} 
                 </td>
 
         </tr>
-        {% endfor %} {% endfor %}
-        {% endfor %}
+
+        {% endfor %} {% endfor %} {% endfor %}
 
 </table>
 
-
-
-
-
-
-{% endblock %}
+{%endblock%}

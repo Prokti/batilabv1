@@ -18,6 +18,7 @@ class House(models.Model):
     name = models.CharField(max_length=100)
     price_ht = models.FloatField()
     code = models.CharField(max_length=100, blank=True)
+    
 
     def __str__(self):
         return self.name
@@ -68,6 +69,9 @@ class House(models.Model):
         print(resultat)
         return resultat
 
+    def prix_ttc(self):
+        return self.price_ht * 1.20
+
 
 class HouseAttribute(models.Model):
     name = models.CharField(max_length=100)
@@ -103,7 +107,11 @@ class HouseAttributePrice(models.Model):
     house_attribute_value = models.ForeignKey(
         HouseAttributeValue, on_delete=models.CASCADE)
     price_ht = models.FloatField()
+    
     #content_object = GenericForeignKey("house_item", "price_ht")
+
+    def calcule_ttc(self):
+        self.price_ht * 1.20
 
     def __float__(self):
         return self.price_ht
