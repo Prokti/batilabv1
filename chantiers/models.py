@@ -8,7 +8,7 @@ import os, random
 def renommage(Fichier, nom):
     aleatoire = random.random()
     nom_fichier = os.path.splitext(nom)[0]    
-    return "{}--{}--{}".format(Fichier.chantier.name, nom_fichier, aleatoire)
+    return "{}/{}".format(Fichier.chantier.name, nom_fichier)
 
 
 
