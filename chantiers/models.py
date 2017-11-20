@@ -50,6 +50,7 @@ class Marche(models.Model):
 class Message(models.Model):
     contenu = models.TextField(verbose_name="Message")
     chantier = models.ForeignKey(Chantier, on_delete=models.CASCADE)
+    date = models.DateField(blank = True, null = True)
     #users = models.ManyToManyField(User)
 
     def __str__(self):

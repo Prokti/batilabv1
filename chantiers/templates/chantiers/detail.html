@@ -27,9 +27,16 @@
         <br> {% for message in chantier.mesMessages %}
 
         <div class="card">
-            <div class="card-block">
+                <div class="card-block">
+                    
+                    {{message.date}}
+                </div>
+            </div>
 
-                {{message}}
+        <div class="card">
+            <div class="card-block">
+                
+                {{message.contenu}}
             </div>
         </div>
 
