@@ -25,10 +25,13 @@ class HouseInline(admin.TabularInline):
 class HouseItemAdmin(admin.ModelAdmin):
     inlines = [HouseAttributePriceInline]
     
+    list_filter =   ('house', 'groupe',)
+    search_fields = ('house__name',)
+    
     
 
 class HouseAdmin(admin.ModelAdmin):
-    list_display = ('name','total', 'groupe')
+    list_display = ('name','total', 'groupe', 'etude')
     fields = ('name', 'price_ht', 'code')
     inlines = [HouseItemInline]
 

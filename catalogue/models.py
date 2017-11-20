@@ -35,7 +35,7 @@ class House(models.Model):
             r2 = r1.houseattributeprice_set.all()
             # print(r1)
             for y in r2:
-                dict1[y.house_attribute_value.name] = y.price_ht
+                dict1[y.house_attribute_value.name] = y.price_ht*1.2
 
         # print(dict1)
         return dict1
@@ -66,8 +66,30 @@ class House(models.Model):
                             {y2.house_attribute_value.name: y2.price_ht}]
                     
                     
-        print(resultat)
+        #print(resultat)
         return resultat
+
+
+    def etude(self):
+        a = self.groupe()       
+        c = []
+        b = map((lambda x: x*1.20), c)
+        d = []
+        
+        for key, valeur in a.items():
+            print(key) 
+            for valeur2 in valeur:
+                #print(valeur2)
+                for valeur3 in valeur2.values():
+                    c.append(valeur3)
+                    print(valeur3)
+
+        for resut in b:
+            d.append(resut)
+            print(resut)
+        
+        return d
+
 
     def prix_ttc(self):
         return self.price_ht * 1.20

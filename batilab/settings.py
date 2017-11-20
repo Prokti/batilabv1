@@ -124,7 +124,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/doc/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'doc')
 
-LOGIN_URL = '/profil/login'
+LOGIN_URL = '/profil/connexion'
 LOGIN_REDIRECT_URL = '/chantiers/'
 
 # Configuration test envoi email dans la console en Developpement 
