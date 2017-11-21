@@ -25,30 +25,13 @@ class MarcheAdmin(admin.ModelAdmin):
     list_filter = ('category', 'chantier',)
     search_fields = ('name',)
 
-class CalculeMaisonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'longueur_ext', 'largueur_ext')
 
-    fieldsets = (
-        ('Général', {
-            'classes': ['collapse',],
-            'fields': ('name', 'longueur_ext', 'largueur_ext')
-        }),
-        ('CALCULES', {
-            
-            'fields': ('name',)
-        }),
-
-    )
-
-    
 
     
 
 admin.site.register(Chantier, ChantierAdmin)
 
-admin.site.register(Marche, MarcheAdmin)
+admin.site.register(CategorieFichier)
 
-admin.site.register(Category)
 
-admin.site.register(CalculeMaison, CalculeMaisonAdmin)
 

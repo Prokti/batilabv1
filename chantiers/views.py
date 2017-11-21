@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
-from .models import Chantier, CalculeMaison, Message
+from .models import Chantier, Message
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
@@ -27,8 +27,3 @@ class DetailChantier(DetailView):
 
 
 
-
-class CalculeMaison(DetailView):
-    context_object_name = "calcule"
-    template_name = 'chantiers/calcules.html'
-    model = CalculeMaison
