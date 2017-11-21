@@ -13,7 +13,7 @@
 
         <div class="list-group">
             {% for fichier in chantier.mesFichiers %}
-            <a href="/doc/{{ fichier.fichier_path }}" class="list-group-item list-group-item-action">{{fichier.name}}</a>
+            <a href="/doc/{{ fichier.fichier_path }}" class="list-group-item list-group-item-action">{{fichier}}</a>
             {% endfor %}
 
         </div>
